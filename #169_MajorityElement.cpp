@@ -27,3 +27,29 @@ public:
     }
 };
 ```
+
+A2:
+# Code
+```cpp []
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+       int max;
+       int size=nums.size();
+       int out=0;
+       for(int i=0;i<size;i++){
+        if(nums[i]!=out){
+        int count=0;
+        for(int j=0;j<size;j++){
+            if(nums[i]==nums[j]){
+                count++;
+            }
+        }if(max<count){
+            max=count;
+            out=nums[i];
+        }
+       }}
+       return out;
+    }
+};
+```
