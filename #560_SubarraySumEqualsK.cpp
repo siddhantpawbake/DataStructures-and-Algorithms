@@ -22,6 +22,29 @@ public:
 class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
+        int cnt=0;
+        for(int i=0;i<nums.size();i++){
+            int sum=0;
+            int j=i;
+            loop:
+            if(j>=nums.size()) goto end;
+            sum+=nums[j];
+            if(sum==k){
+                cnt++;
+            }
+            j++;
+            goto loop;
+            end: continue;
+        }
+        return cnt;
+    }
+};
+
+#Approach 3:
+
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
         map<int,int> map;
         map[0]=1;      
         int sum=0;
