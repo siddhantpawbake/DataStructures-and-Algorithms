@@ -10,7 +10,7 @@ class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
         int size = nums.size();
-        vector<int> ans(size, 0); // Initialize ans with zeros
+        vector<int> ans(size, 0);
         int i = 0, j = 0;
 
     same:
@@ -23,8 +23,23 @@ public:
             goto same;
         }
 
-        nums = ans; // Copy back the modified array
+        nums = ans;
     }
 };
 
 ```
+A2:USING TWO POINTER
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int i=0;
+        for(int j=0;j<nums.size();j++){
+            if(nums[j]!=0){
+                nums[i]=nums[j];
+                 if (i != j) {
+                    nums[j] = 0;
+                   }
+                i++;
+            }
+    }
+};};
