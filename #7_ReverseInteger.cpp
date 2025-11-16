@@ -22,3 +22,19 @@ public:
 };
 
 ```
+
+class Solution {
+public:
+    int helper(int x, long rev){
+        if (x == 0) {
+            return rev;
+        } 
+        int digit = x % 10;
+        if (rev > INT_MAX/10 || rev < INT_MIN/10) return 0;
+        rev = rev * 10 + digit;
+        return helper(x / 10, rev);
+    }
+    int reverse(int x) {
+        return helper(x, 0);
+    }
+};
